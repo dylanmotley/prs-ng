@@ -5,6 +5,7 @@ import { ProductDetailComponent } from './feature/product/product-detail/product
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
 import { ProductListComponent } from './feature/product/product-list/product-list.component';
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
+import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 import { RequestListComponent } from './feature/request/request-list/request-list.component';
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path:'request-list', component: RequestListComponent},
   {path:'request-create', component: RequestCreateComponent},
   {path:'request-edit/:id', component: RequestEditComponent},
+  {path:'request-detail/:id', component: RequestDetailComponent},
   {path:'**', component: UserListComponent}
 
 ];

@@ -1,0 +1,8 @@
+<nav>
+    <ul>
+      <img width='115' height='55' src='assets/prs_logo.png' title='User Details'>
+      <li *ngFor = 'let mi of menuItems' title="{{mi.tooltip}}">
+      <a routerLink='{{mi.href}}'>{{mi.display}}</a>
+    </li>  
+    </ul>
+</nav>

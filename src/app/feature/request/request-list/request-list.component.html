@@ -1,0 +1,45 @@
+<section class="heading">
+    <span class="page-title font-weight-bold-italic">[{{title}}]</span>
+    <a routerLink='/request-create'>
+      <img width='20' height='20' src='assets/add-icon.png' title='Add New'>
+  </a>
+  <table class="table table-sm table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">User</th>
+          <th scope="col">Description</th>
+          <th scope="col">Justification</th>
+          <th scope="col">Date Needed</th>
+          <th scope="col">Delivery Mode</th>
+          <th scope="col">Status</th>
+          <th scope="col">Total</th>
+          <th scope="col">Submitted Date</th>
+          <th scope="col">Reason For Rejection</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = 'let request of requests'>
+          <th scope="row">{{request.id}}</th>
+          <td>{{request.user.username}}</td>
+          <td>{{request.description}}</td>
+          <td>{{request.justification}}</td>
+          <td>{{request.dateNeeded}}</td>
+          <td>{{request.deliveryMode}}</td>
+          <td>{{request.status}}</td>
+          <td>{{request.total}}</td>
+          <td>{{request.submittedDate}}</td>
+          <td>{{request.reasonForRejection}}</td>
+          <td>
+            <a routerLink='/request-detail/{{request.id}}'>
+              <img width='20' height='20' src='assets/details.png' title='Request Details'>
+            </a> |
+            <a routerLink='/request-edit/{{request.id}}'>
+              <img width='20' height='20' src='assets/pencil-icon.png' title='Request Movie'>
+            </a> 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  

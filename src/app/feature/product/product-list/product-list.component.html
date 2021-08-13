@@ -1,0 +1,39 @@
+<section class="heading">
+    <span class="page-title font-weight-bold-italic">[{{title}}]</span>
+    <a routerLink='/product-create'>
+      <img width='20' height='20' src='assets/add-icon.png' title='Add New'>
+  </a>
+  <table class="table table-sm table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Vendor</th>
+          <th scope="col">Part Number</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Unit</th>
+          <th scope="col">Photo Path</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = 'let product of products'>
+          <th scope="row">{{product.id}}</th>
+          <td>{{product.vendor.name}}</td>
+          <td>{{product.partNumber}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.unit}}</td>
+          <td>{{product.photoPath}}</td>
+          <td>
+            <a routerLink='/product-detail/{{product.id}}'>
+              <img width='20' height='20' src='assets/details.png' title='Product Details'>
+            </a> |
+            <a routerLink='/product-edit/{{product.id}}'>
+              <img width='20' height='20' src='assets/pencil-icon.png' title='Product Movie'>
+            </a> 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  

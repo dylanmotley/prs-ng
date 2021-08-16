@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LineitemListComponent implements OnInit {
 
+  // LineItem Constructor
   constructor() { }
 
   ngOnInit(): void {

@@ -23,6 +23,7 @@ import { RequestListComponent } from './feature/request/request-list/request-lis
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
+import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { RequestDetailComponent } from './feature/request/request-detail/request
     RequestCreateComponent,
     RequestEditComponent,
     RequestDetailComponent,
+    RequestLinesComponent,
   ],
   imports: [
     BrowserModule,

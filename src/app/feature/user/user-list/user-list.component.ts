@@ -14,15 +14,13 @@ export class UserListComponent implements OnInit {
 
   constructor(
     private userSvc: UserService,
-    private sysSvc: SystemService
     ) { }
 
   ngOnInit(): void {
-    console.log("User List, checking logged in sysSvc: ", this.sysSvc.loggedInUser);
     this.userSvc.list().subscribe(
       resp => {
         this.users = resp as User[];
-          console.log("list of users: ", this.users);},
+        },
         err => { console.log(err);}
         );
   }

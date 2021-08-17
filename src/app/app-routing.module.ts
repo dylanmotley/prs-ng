@@ -8,6 +8,7 @@ import { RequestCreateComponent } from './feature/request/request-create/request
 import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 import { RequestListComponent } from './feature/request/request-list/request-list.component';
+import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
 import { UserDetailComponent } from './feature/user/user-detail/user-detail.component';
 import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
@@ -17,6 +18,8 @@ import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-cre
 import { VendorDetailComponent } from './feature/vendor/vendor-detail/vendor-detail.component';
 import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
 import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.component';
+import { LineitemCreateComponent } from './feature/lineitem/lineitem-create/lineitem-create.component';
+import { LineitemEditComponent } from './feature/lineitem/lineitem-edit/lineitem-edit.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/user-list', pathMatch:'full'},
@@ -37,6 +40,9 @@ const routes: Routes = [
   {path:'request-create', component: RequestCreateComponent},
   {path:'request-edit/:id', component: RequestEditComponent},
   {path:'request-detail/:id', component: RequestDetailComponent},
+  {path:'request-lines/:id', component: RequestLinesComponent},
+  {path:'lineitem-create/:id', component: LineitemCreateComponent},
+  {path:'lineitem-edit/:id', component: LineitemEditComponent},
   {path:'**', component: UserListComponent}
 
 ];

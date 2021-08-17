@@ -1,1 +1,58 @@
-<p>request-lines works!</p>
+<section class="heading">
+    <span class="page-title font-weight-bold font-italic">{{title}}</span>
+    <span> | <a routerLink="/request-list">Return to List</a></span>
+</section>
+<main class="single">
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>User:</th>
+                <th>Description:</th>
+                <th>Status:</th>
+                <th>Total:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th>{{request.user.lastName +', ' +request.user.firstName}}</th>
+            <td>{{request.description}}</td>
+            <td>{{request.status}}</td>
+            <td>{{request.total}}</td>
+        </tbody>
+    </table>
+    <section class="heading">
+        <span class="page-title font-weight-bold font-italic">Line Items</span>
+        <a routerLink='/lineitem-create/{{request.id}}'>
+            <img width='20' height='20' src='assets/add-icon.png' title='Add New'>
+        </a>
+    </section>
+    <main class="single">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Vendor:</th>
+                    <th>Product:</th>
+                    <th>Quantity:</th>
+                    <th>Price:</th>
+                    <th>Line Total:</th>
+                    <th>Action:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = 'let lineitem of lineitems'>
+                <td>{{lineitem.product.vendor.name +', ' +lineitem.product.vendor.code}}</td>
+                <td>{{lineitem.product.name +', ' +lineitem.product.partNumber}}</td>
+                <td>{{lineitem.quantity}}</td>
+                <td>{{lineitem.product.price}}</td>
+                <td>{{lineitem.quantity*lineitem.product.price}}</td>
+                <td>
+                    <a routerLink='/lineitem-edit/{{lineitem.id}}'>
+                      <img width='20' height='20' src='assets/pencil-icon.png' title='Line Item Edit'>
+                    </a> |
+                    <span><button (click)="delete(lineitem.id)" class="btn btn-sm btn-danger">Delete</button></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="delete(lineitem.id)" class="btn btn-sm btn-primary">Submit</button>
+</main>
+

@@ -23,7 +23,6 @@ export class RequestCreateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("User List, checking logged in sysSvc: ", this.sysSvc.loggedInUser);
     this.request.user = this.sysSvc.loggedInUser;
   }
 

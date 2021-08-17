@@ -18,11 +18,10 @@ export class VendorListComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    console.log("Vendor List, checking logged in sysSvc: ", this.sysSvc.loggedInUser);
     this.vendorSvc.list().subscribe(
       resp => {
         this.vendors = resp as Vendor[];
-          console.log("list of vendors: ", this.vendors);},
+      },
         err => { console.log(err);}
         );
   }

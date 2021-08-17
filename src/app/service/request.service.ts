@@ -33,4 +33,8 @@ export class RequestService {
     return this.http.delete(URL + '/' + id) as Observable<Request>
   }
 
+  submit(request: Request): Observable<Request> {
+    return this.http.put(URL + "/submit-review", request) as Observable<Request>;
+  }
+
 }

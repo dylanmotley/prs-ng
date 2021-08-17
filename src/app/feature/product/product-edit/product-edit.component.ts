@@ -24,21 +24,21 @@ export class ProductEditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-        // get the Product to Edit
-        this.route.params.subscribe(parms => this.productId = parms["id"]);
-        this.productSvc.get(this.productId).subscribe(
-          resp => {
-            this.product = resp as Product;
-          },
-          err => { console.log(err); }
-        );
-        // Populate List of Vendors
-        this.vendorSvc.list().subscribe(
-          resp => {
-            this.vendors = resp as Vendor[];
-          },
-          err => { console.log(err); }
-        );
+    // get the Product to Edit
+    this.route.params.subscribe(parms => this.productId = parms["id"]);
+    this.productSvc.get(this.productId).subscribe(
+      resp => {
+        this.product = resp as Product;
+      },
+      err => { console.log(err); }
+    );
+    // Populate List of Vendors
+    this.vendorSvc.list().subscribe(
+      resp => {
+        this.vendors = resp as Vendor[];
+      },
+      err => { console.log(err); }
+    );
   }
 
   save() {
@@ -55,6 +55,6 @@ export class ProductEditComponent implements OnInit {
   compVendor(a: Vendor, b: Vendor): boolean {
     return a && b && a.id === b.id;
   }
-  
+
 
 }

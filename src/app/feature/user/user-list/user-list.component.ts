@@ -10,13 +10,19 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class UserListComponent implements OnInit {
   users: User[] = [];
-  title: string = 'User Manager';
+  title: string = 'User List';
+  loggedInUser: User = new User();
 
   constructor(
     private userSvc: UserService,
+    private sysSvc: SystemService,
     ) { }
 
   ngOnInit(): void {
+
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    this.sysSvc.checkLogin();
+
     this.userSvc.list().subscribe(
       resp => {
         this.users = resp as User[];

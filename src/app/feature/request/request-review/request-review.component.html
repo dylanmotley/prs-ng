@@ -1,9 +1,6 @@
 <app-menu></app-menu>
 <section class="heading">
     <span class="page-title font-weight-bold-italic">[{{title}}]</span>
-    <a routerLink='/request-create'>
-      <img width='20' height='20' src='assets/add-icon.png' title='Add New'>
-  </a>
   <table class="table table-sm table-striped">
       <thead>
         <tr>
@@ -33,17 +30,12 @@
           <td>{{request.submittedDate}}</td>
           <td>{{request.reasonForRejection}}</td>
           <td>
-            <a routerLink='/request-detail/{{request.id}}'>
-              <img width='20' height='20' src='assets/details.png' title='Request Details'>
-            </a> |
-            <a routerLink='/request-edit/{{request.id}}'>
-              <img width='20' height='20' src='assets/pencil-icon.png' title='Request Movie'>
-            </a> |
-            <a routerLink='/request-lines/{{request.id}}'>
-              <img width='20' height='20' src='assets/lines.png' title='Request Lines'>
-            </a> 
+            <a routerLink='/request-approve/{{request.id}}'>
+              <img width='20' height='20' src='assets/review.png' title='Request Review'>
+            </a>
           </td>
         </tr>
       </tbody>
     </table>
   
+

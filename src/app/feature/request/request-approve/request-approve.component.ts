@@ -7,12 +7,12 @@ import { LineitemService } from 'src/app/service/lineitem.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-request-lines',
-  templateUrl: './request-lines.component.html',
-  styleUrls: ['./request-lines.component.css']
+  selector: 'app-request-approve',
+  templateUrl: './request-approve.component.html',
+  styleUrls: ['./request-approve.component.css']
 })
-export class RequestLinesComponent implements OnInit {
-  title: string = 'Request Line Items';
+export class RequestApproveComponent implements OnInit {
+  title: string = 'Request Approve/Reject';
   lineitems: Lineitem[] = [];
   request: Request = new Request();
   requestId: number = 0;
@@ -43,8 +43,17 @@ export class RequestLinesComponent implements OnInit {
     );
   }
 
-  save() {
-    this.requestSvc.edit(this.request).subscribe(
+  approve() {
+    this.requestSvc.approve(this.request).subscribe(
+      resp => {
+        this.request = resp as Request;
+        this.router.navigateByUrl("/request-list");
+      },
+      err => { console.log(err); }
+    );
+  }
+  reject() {
+    this.requestSvc.reject(this.request).subscribe(
       resp => {
         this.request = resp as Request;
         this.router.navigateByUrl("/request-list");
@@ -53,27 +62,5 @@ export class RequestLinesComponent implements OnInit {
     );
   }
 
-  delete(lineItemId: number) {
-    this.lineitemSvc.delete(lineItemId).subscribe(
-      resp => {
-        this.lineitem = resp as Lineitem;
-        this.router.navigateByUrl('/request-list');
-      },
-      err => {
-        console.log(err);
-      }
-    );
-  }
-
-  submit() {
-    this.requestSvc.submit(this.request).subscribe(
-      resp => {
-      this.request = resp as Request;
-      this.router.navigateByUrl("/request-list"); 
-      },
-      err => {console.log(err);
-      }
-    );
-  }
 
 }

@@ -35,7 +35,6 @@
                     <th>Quantity:</th>
                     <th>Price:</th>
                     <th>Line Total:</th>
-                    <th>Action:</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,15 +44,10 @@
                 <td>{{lineitem.quantity}}</td>
                 <td>{{lineitem.product.price}}</td>
                 <td>{{lineitem.quantity*lineitem.product.price}}</td>
-                <td>
-                    <a routerLink='/lineitem-edit/{{lineitem.id}}'>
-                      <img width='20' height='20' src='assets/pencil-icon.png' title='Line Item Edit'>
-                    </a> |
-                    <span><button (click)="delete(lineitem.id)" class="btn btn-sm btn-danger">Delete</button></span>
-                </td>
             </tr>
         </tbody>
     </table>
-    <button (click)="submit()" class="btn btn-sm btn-primary">Submit</button>
+    <button (click)="approve()" class="btn btn-sm btn-primary">Approve</button>
+    <button (click)="reject()" class="btn btn-sm btn-danger">Reject</button>
 </main>
 

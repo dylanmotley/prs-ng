@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Vendor } from 'src/app/model/vendor.class';
+import { User } from 'src/app/model/user.class';
 import { VendorService } from 'src/app/service/vendor.service';
 import { SystemService } from 'src/app/service/system.service';
 
@@ -11,6 +12,7 @@ import { SystemService } from 'src/app/service/system.service';
 export class VendorListComponent implements OnInit {
   vendors: Vendor[] = [];
   title: string = 'Vendor Manager';
+  loggedInUser: User = new User();
 
   constructor(
     private vendorSvc: VendorService,
@@ -18,6 +20,9 @@ export class VendorListComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    this.sysSvc.checkLogin();
+
     this.vendorSvc.list().subscribe(
       resp => {
         this.vendors = resp as Vendor[];

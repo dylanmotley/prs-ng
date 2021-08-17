@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'src/app/model/menu-item.class';
+import { User } from 'src/app/model/user.class';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,12 +9,15 @@ import { MenuItem } from 'src/app/model/menu-item.class';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
   menuItems: MenuItem[] = [];
+  loggedInUser: User = new User();
 
-  constructor() { }
+  constructor(
+    private sysSvc: SystemService
+    ) { }
 
   ngOnInit(): void {
+    
     this.menuItems = [
       new MenuItem("User", "/user-list", "User List"),
       new MenuItem("Vendor", "/vendor-list", "Vendor List"),
@@ -20,6 +25,11 @@ export class MenuComponent implements OnInit {
       new MenuItem("Request", "/request-list", "Request List"),
       new MenuItem("Login", "/user-login", "User Login"),
     ]
+
+      let reviewer = this.sysSvc.loggedInUser.reviewer;
+      if (reviewer == true)
+      this.menuItems.push(new MenuItem("Review", "/request-review", "Review"));
+
   }
 
 }

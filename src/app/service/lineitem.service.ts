@@ -33,8 +33,8 @@ export class LineitemService {
     return this.http.delete(URL + '/' + id) as Observable<Lineitem>
   }
 
-  getRequestLineitems(requestId: number): Observable<Lineitem[]> {
-      return this.http.get(URL + '/lines-for-pr/' +requestId) as Observable<Lineitem[]>
+  getRequestLineitems(userId: number): Observable<Lineitem[]> {
+      return this.http.get(URL + '/lines-for-pr/' +userId) as Observable<Lineitem[]>
   }
 
 }

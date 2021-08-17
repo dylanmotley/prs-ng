@@ -20,6 +20,8 @@ import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.co
 import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.component';
 import { LineitemCreateComponent } from './feature/lineitem/lineitem-create/lineitem-create.component';
 import { LineitemEditComponent } from './feature/lineitem/lineitem-edit/lineitem-edit.component';
+import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
+import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/user-list', pathMatch:'full'},
@@ -30,17 +32,19 @@ const routes: Routes = [
   {path:'user-login', component: UserLoginComponent},
   {path:'vendor-list', component: VendorListComponent},
   {path:'vendor-create', component: VendorCreateComponent},
-  {path:'vendor-edit/:id', component: VendorEditComponent},
   {path:'vendor-detail/:id', component: VendorDetailComponent},
+  {path:'vendor-edit/:id', component: VendorEditComponent},
   {path:'product-list', component: ProductListComponent},
   {path:'product-create', component: ProductCreateComponent},
-  {path:'product-edit/:id', component: ProductEditComponent},
   {path:'product-detail/:id', component: ProductDetailComponent},
+  {path:'product-edit/:id', component: ProductEditComponent},
   {path:'request-list', component: RequestListComponent},
   {path:'request-create', component: RequestCreateComponent},
-  {path:'request-edit/:id', component: RequestEditComponent},
   {path:'request-detail/:id', component: RequestDetailComponent},
+  {path:'request-edit/:id', component: RequestEditComponent},
   {path:'request-lines/:id', component: RequestLinesComponent},
+  {path:'request-review', component: RequestReviewComponent},
+  {path:'request-approve/:id', component: RequestApproveComponent},
   {path:'lineitem-create/:id', component: LineitemCreateComponent},
   {path:'lineitem-edit/:id', component: LineitemEditComponent},
   {path:'**', component: UserListComponent}

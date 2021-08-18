@@ -11,7 +11,7 @@ import { UserService } from 'src/app/service/user.service';
 export class UserEditComponent implements OnInit {
   title: string = 'User Edit';
   user: User = new User();
-  submitBtnTitle: string = 'Save';
+  submitBtnTitle: string = 'Edit';
   userId: number = 0;
 
   constructor(

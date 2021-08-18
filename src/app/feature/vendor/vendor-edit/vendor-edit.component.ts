@@ -11,7 +11,7 @@ import { VendorService } from 'src/app/service/vendor.service';
 export class VendorEditComponent implements OnInit {
   title: string = 'Vendor Edit';
   vendor: Vendor = new Vendor();
-  submitBtnTitle: string = 'Save';
+  submitBtnTitle: string = 'Edit';
   vendorId: number = 0;
   constructor(
     private vendorSvc: VendorService,

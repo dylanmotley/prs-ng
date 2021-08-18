@@ -1,14 +1,13 @@
 <app-menu></app-menu>
 <section class="heading">
-    <span class="page-title font-weight-bold-italic">[{{title}}]</span>
+    <span class="page-title font-weight-bold-italic">User List </span>
     <a routerLink='/user-create'>
-      <img width='20' height='20' src='assets/add-icon.png' title='Add New'>
+      <img width='20' height='20' src='assets/add-icon.png' title='Add New User'>
   </a>
   </section>
   <table class="table table-sm table-striped">
     <thead>
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">Username</th>
         <th scope="col">Password</th>
         <th scope="col">First Name</th>
@@ -22,7 +21,6 @@
     </thead>
     <tbody>
       <tr *ngFor='let user of users'>
-        <th scope="row">{{user.id}}</th>
         <td>{{user.username}}</td>
         <td>{{user.password}}</td>
         <td>{{user.firstName}}</td>
